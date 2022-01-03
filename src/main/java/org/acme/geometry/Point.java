@@ -9,15 +9,23 @@ public class Point implements Geometry {
     }
 
     Point(Coordinate coordinate){
-        this.coordinate = coordinate;
+        if(coordinate == null){
+            this.coordinate = new Coordinate();
+        }else{
+            this.coordinate = coordinate;
+        } 
+    }
+
+    public Coordinate getCoordinate(){
+        return coordinate;
     }
 
     public String getType(){
         return "Point";
     }
 
-    public Coordinate getCoordinate(){
-        return coordinate;
+    public Boolean isEmpty(){
+        return coordinate.isEmpty();
     }
     
 }
