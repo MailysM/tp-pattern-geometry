@@ -69,4 +69,19 @@ public class LineStringTest {
         Assert.assertEquals(4.5, line.getPointN(1).getCoordinate().getX(), EPSILON);
         Assert.assertEquals(8.6, line.getPointN(1).getCoordinate().getY(), EPSILON);
 	}
+
+	@Test
+	public void testClone(){
+		Point p1 = new Point(c1);
+	    Point p2 = new Point(c2);
+		points.add(p1);
+		points.add(p2);
+		LineString line = new LineString(points);
+		LineString lineClone = line.clone();
+		//Test translate only on line and not on lineClone
+		line.translate(1.5, 2.6);
+         Assert.assertEquals(5.0, lineClone.getPointN(0).getCoordinate().getY(), EPSILON);
+        Assert.assertEquals(3.0, lineClone.getPointN(1).getCoordinate().getX(), EPSILON);
+        Assert.assertEquals(6.0, lineClone.getPointN(1).getCoordinate().getY(), EPSILON);
+	}
 }
