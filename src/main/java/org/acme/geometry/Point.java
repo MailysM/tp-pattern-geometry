@@ -15,5 +15,9 @@ public class Point implements Geometry {
     public String getType(){
         return "Point";
     }
+
+    public Coordinate getCoordinate(){
+        return coordinate;
+    }
     
 }
