@@ -12,8 +12,8 @@ public class LineStringTest {
 	public static final Coordinate c1 = new Coordinate(1.0,5.0);
 	public static final Coordinate c2 = new Coordinate(3.0,6.0);
 
-	public static final Point p1 = new Point(c1);
-	public static final Point p2 = new Point(c2);
+	Point p1 = new Point(c1);
+	Point p2 = new Point(c2);
 	public List<Point> points = new ArrayList<Point>();
 
 
@@ -25,11 +25,11 @@ public class LineStringTest {
 
 	@Test
 	public void testConstructor(){
-        
+        Point p1 = new Point(c1);
+	    Point p2 = new Point(c2);
 		points.add(p1);
 		points.add(p2);
         LineString line = new LineString(points);
-
 		Assert.assertEquals(2,line.getNumPoints(), EPSILON);
 		Assert.assertEquals(1.0, line.getPointN(0).getCoordinate().getX(), EPSILON);
         Assert.assertEquals(5.0, line.getPointN(0).getCoordinate().getY(), EPSILON);
@@ -46,11 +46,27 @@ public class LineStringTest {
 
 	@Test
 	public void testIsEmpty(){
+		Point p1 = new Point(c1);
+	    Point p2 = new Point(c2);
 		points.add(p1);
 		points.add(p2);
 		LineString line1 = new LineString();
 		LineString line2 = new LineString(points);
 		Assert.assertEquals(true,line1.isEmpty());
 		Assert.assertEquals(false,line2.isEmpty());
+	}
+
+	@Test
+	public void testTranslate(){
+		Point p1 = new Point(c1);
+	    Point p2 = new Point(c2);
+		points.add(p1);
+		points.add(p2);
+		LineString line = new LineString(points);
+		line.translate(1.5, 2.6);
+		Assert.assertEquals(2.5, line.getPointN(0).getCoordinate().getX(), EPSILON);
+        Assert.assertEquals(7.6, line.getPointN(0).getCoordinate().getY(), EPSILON);
+        Assert.assertEquals(4.5, line.getPointN(1).getCoordinate().getX(), EPSILON);
+        Assert.assertEquals(8.6, line.getPointN(1).getCoordinate().getY(), EPSILON);
 	}
 }

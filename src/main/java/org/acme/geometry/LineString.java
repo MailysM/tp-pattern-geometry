@@ -1,6 +1,7 @@
 package org.acme.geometry;
 
 import java.lang.reflect.Array;
+import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +40,22 @@ public class LineString implements Geometry{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void translate(double dx, double dy){
+        for (Point point : points) {
+            point.translate(dx, dy);
+        }
+    }
+
+    @Override
+    public LineString clone(){
+        List<Point> pointsClone = new ArrayList<Point>();
+        for (Point point : pointsClone) {
+            pointsClone.add(point.clone());
+        }
+        return new LineString(pointsClone);
     }
     
 }
