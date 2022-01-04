@@ -26,10 +26,12 @@ public class CoordinateTest {
 		Coordinate c1 = new Coordinate();
 		Coordinate c2 = new Coordinate(1.0,5.0);
 		Coordinate c3 = new Coordinate(Double.NaN, 5.0);
+		Coordinate c4 = new Coordinate(4.0,Double.NaN);
 
 		Assert.assertEquals(true, c1.isEmpty());
 		Assert.assertEquals(false, c2.isEmpty());
 		Assert.assertEquals(true, c3.isEmpty());
+		Assert.assertEquals(true, c4.isEmpty());
 	}
 
 

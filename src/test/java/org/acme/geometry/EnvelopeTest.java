@@ -24,4 +24,29 @@ public class EnvelopeTest {
         Assert.assertEquals(2.0, e.getYMin(), EPSILON);
         Assert.assertEquals(6.0, e.getYMax(), EPSILON);
 	}
+	@Test
+	public void testConstructorNullValue(){
+		Envelope e1 = new Envelope(c1,null);
+		Envelope e2 = new Envelope(null,c2);
+		Envelope e3 = new Envelope(null,null);
+		Assert.assertEquals(1.0, e1.getXMin(), EPSILON);
+		Assert.assertEquals(Double.NaN, e1.getYMax(), EPSILON);
+		Assert.assertEquals(3.0, e2.getXMax(), EPSILON);
+		Assert.assertEquals(Double.NaN, e2.getYMin(), EPSILON);
+        Assert.assertEquals(Double.NaN, e3.getYMax(), EPSILON);
+        Assert.assertEquals(Double.NaN, e3.getYMin(), EPSILON);
+	}
+
+	@Test
+	public void testIsEmpty(){
+		Envelope e1 = new Envelope(c1,c2);
+		Envelope e2 = new Envelope(c1,null);
+		Envelope e3 = new Envelope(null,c2);
+		Envelope e4 = new Envelope(null,null);
+		Assert.assertEquals(false, e1.isEmpty());
+		Assert.assertEquals(true, e2.isEmpty());
+		Assert.assertEquals(true, e3.isEmpty());
+		Assert.assertEquals(true, e4.isEmpty());
+		
+	}
 }

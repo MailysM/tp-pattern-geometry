@@ -24,6 +24,13 @@ public class PointTest {
 		Assert.assertEquals(5.0, p.getCoordinate().getY(), EPSILON);
 	}
 
+	@Test
+	public void testConstructorNullValue(){
+		Point p = new Point(null);
+		Assert.assertEquals(Double.NaN, p.getCoordinate().getX(), EPSILON);
+		Assert.assertEquals(Double.NaN, p.getCoordinate().getY(), EPSILON);
+	}
+
     @Test
 	public void testGetType(){
 		Point p = new Point();
@@ -56,6 +63,15 @@ public class PointTest {
 		p.translate(2.1, 1.5);
 		Assert.assertEquals(1.0, pClone.getCoordinate().getX(), EPSILON);
 		Assert.assertEquals(5.0, pClone.getCoordinate().getY(), EPSILON);
+	}
 
+	@Test
+	public void testGetEnvelope(){
+		Point p = new Point(c);
+		Envelope pEnv = p.getEnvelope();
+		Assert.assertEquals(1.0, pEnv.getXMax(), EPSILON);
+		Assert.assertEquals(1.0, pEnv.getXMin(), EPSILON);
+		Assert.assertEquals(5.0, pEnv.getYMax(), EPSILON);
+		Assert.assertEquals(5.0, pEnv.getYMin(), EPSILON);
 	}
 }

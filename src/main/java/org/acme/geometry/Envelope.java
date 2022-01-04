@@ -9,8 +9,18 @@ public class Envelope {
         this.topRight = new Coordinate();
     }
     Envelope(Coordinate bottomLeft, Coordinate topRight){
-        this.bottomLeft = bottomLeft;
-        this.topRight = topRight;
+        if(bottomLeft == null){
+            this.bottomLeft = new Coordinate();
+        }else{
+            this.bottomLeft = bottomLeft;
+        }
+        if(topRight == null){
+            this.topRight = new Coordinate();
+        }
+        else{
+            this.topRight = topRight;
+        }
+        
     }
 
     public Boolean isEmpty(){
