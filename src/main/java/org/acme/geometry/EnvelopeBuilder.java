@@ -31,6 +31,9 @@ public class EnvelopeBuilder {
     }
 
     public Envelope build(){
+        if(coordX.size()==0){
+            return new Envelope();
+        }
         Coordinate bottomLeft = new Coordinate(Collections.min(coordX), Collections.min(coordY));
         Coordinate topRight = new Coordinate(Collections.max(coordX), Collections.max(coordY));
         return new Envelope(bottomLeft,topRight);

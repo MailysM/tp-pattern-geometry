@@ -1,7 +1,6 @@
 package org.acme.geometry;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -57,7 +56,15 @@ public class EnvelopeBuilderTest {
         Assert.assertEquals(2.0,env.getYMin(),EPSILON);
         Assert.assertEquals(3.0,env.getXMax(),EPSILON);
         Assert.assertEquals(10.0,env.getYMax(),EPSILON);
+	}
 
-		
+    @Test
+	public void testBuilderNull(){
+		EnvelopeBuilder eb = new EnvelopeBuilder();
+        Envelope env =  eb.build();
+        Assert.assertEquals(Double.NaN,env.getXMin(),EPSILON);
+        Assert.assertEquals(Double.NaN,env.getYMin(),EPSILON);
+        Assert.assertEquals(Double.NaN,env.getXMax(),EPSILON);
+        Assert.assertEquals(Double.NaN,env.getYMax(),EPSILON);
 	}
 }

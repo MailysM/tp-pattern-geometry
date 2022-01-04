@@ -13,8 +13,6 @@ public class LineStringTest {
 	public static final Coordinate c2 = new Coordinate(3.0,6.0);
 	public static final Coordinate c3 = new Coordinate(0.5,10.0);
 
-	Point p1 = new Point(c1);
-	Point p2 = new Point(c2);
 	public List<Point> points = new ArrayList<Point>();
 
 

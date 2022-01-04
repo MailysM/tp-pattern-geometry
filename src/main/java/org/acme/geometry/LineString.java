@@ -1,7 +1,5 @@
 package org.acme.geometry;
 
-import java.lang.reflect.Array;
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
