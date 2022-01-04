@@ -36,6 +36,9 @@ public class GeometryWithCachedEnvelopeTest {
         g.translate(2.0, 5.0);
         Envelope b = listener.getEnvelope();
         Assert.assertEquals(g.getEnvelope().getXMax(),b.getXMax(),EPSILON);
+        Assert.assertEquals(g.getEnvelope().getXMin(),b.getXMin(),EPSILON);
+        Assert.assertEquals(g.getEnvelope().getYMax(),b.getYMax(),EPSILON);
+        Assert.assertEquals(g.getEnvelope().getYMin(),b.getYMin(),EPSILON);
     }
     
 }
