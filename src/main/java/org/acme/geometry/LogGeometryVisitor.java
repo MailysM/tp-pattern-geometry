@@ -1,17 +1,37 @@
 package org.acme.geometry;
 
-public class LogGeometryVisitor {
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
-    LogGeometryVisitor(){}
+public class LogGeometryVisitor implements GeometryVisitor {
 
-    public void visit(Point point){
-        String log = "Je suis un point avec x="+point.getCoordinate().getX()+" et y="+point.getCoordinate().getY();
-        System.out.println(log);
+    PrintStream printStream;
+
+    LogGeometryVisitor(){
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        this.printStream = new PrintStream(os);
     }
 
+    LogGeometryVisitor(PrintStream printStream){
+        if(printStream==null){
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            this.printStream = new PrintStream(os);
+        }else{
+            this.printStream = printStream;
+        }
+        
+    }
+
+    @Override
+    public void visit(Point point){
+        String log = "Je suis un point avec x="+point.getCoordinate().getX()+" et y="+point.getCoordinate().getY();
+        printStream.println(log);
+    }
+
+    @Override
     public void visit(LineString lineString){
         String log = "Je suis une polyligne définie par "+lineString.getNumPoints()+" point(s)";
-        System.out.println(log);
+        printStream.println(log);
     }
     
 }
