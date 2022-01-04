@@ -42,12 +42,21 @@ public class Point extends AbstractGeometry {
 
     @Override
     public Envelope getEnvelope(){
-        return new Envelope(coordinate,coordinate);
+        EnvelopeBuilder envBuild = new EnvelopeBuilder();
+        envBuild.visit(this);
+        return envBuild.build();
     }
 
     @Override
     public void accept(GeometryVisitor visitor){
         visitor.visit(this);
+    }
+
+    @Override
+    public String asText() {
+        WktVisitor visitor = new WktVisitor();
+        visitor.visit(this);
+        return visitor.getResult();   
     }
     
 }

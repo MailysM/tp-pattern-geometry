@@ -7,11 +7,6 @@ public class LogGeometryVisitor implements GeometryVisitor {
 
     PrintStream printStream;
 
-    LogGeometryVisitor(){
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-        this.printStream = new PrintStream(os);
-    }
-
     LogGeometryVisitor(PrintStream printStream){
         if(printStream==null){
             ByteArrayOutputStream os = new ByteArrayOutputStream();
@@ -21,6 +16,7 @@ public class LogGeometryVisitor implements GeometryVisitor {
         }
         
     }
+
 
     @Override
     public void visit(Point point){

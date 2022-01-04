@@ -20,6 +20,7 @@ public class LogGeometryVisitorTest {
     public List<Point> points = new ArrayList<Point>();
 
 
+  
     @Test
 	public void testVisitPoint() throws UnsupportedEncodingException{
 		
