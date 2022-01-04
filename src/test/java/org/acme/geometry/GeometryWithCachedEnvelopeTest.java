@@ -26,5 +26,16 @@ public class GeometryWithCachedEnvelopeTest {
         Envelope b = g.getEnvelope() ; // renvoi de cachedEnvelope
         Assert.assertSame(a,b);
     }
+
+    @Test
+    public void testOnChange(){
+        Geometry g = new Point(new Coordinate(3.0,3.0));
+        GeometryWithCachedEnvelope listener = new GeometryWithCachedEnvelope(g);
+        g.addListener(listener);
+        Envelope a = listener.getEnvelope() ; // calcul et stockage dans cachedEnvelope
+        g.translate(2.0, 5.0);
+        Envelope b = listener.getEnvelope();
+        Assert.assertEquals(g.getEnvelope().getXMax(),b.getXMax(),EPSILON);
+    }
     
 }

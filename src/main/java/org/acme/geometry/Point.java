@@ -33,6 +33,7 @@ public class Point extends AbstractGeometry {
     @Override
     public void translate(double dx, double dy){
         this.coordinate = new Coordinate(coordinate.getX()+dx, coordinate.getY()+dy);
+        this.triggerChange();
     }
 
     @Override

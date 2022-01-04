@@ -58,8 +58,8 @@ public class LineStringTest {
 		points.add(p2);
 		LineString line1 = new LineString();
 		LineString line2 = new LineString(points);
-		Assert.assertEquals(true,line1.isEmpty());
-		Assert.assertEquals(false,line2.isEmpty());
+		Assert.assertTrue(line1.isEmpty());
+		Assert.assertFalse(line2.isEmpty());
 	}
 
 	@Test

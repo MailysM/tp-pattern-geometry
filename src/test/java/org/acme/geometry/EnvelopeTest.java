@@ -43,10 +43,10 @@ public class EnvelopeTest {
 		Envelope e2 = new Envelope(c1,null);
 		Envelope e3 = new Envelope(null,c2);
 		Envelope e4 = new Envelope(null,null);
-		Assert.assertEquals(false, e1.isEmpty());
-		Assert.assertEquals(true, e2.isEmpty());
-		Assert.assertEquals(true, e3.isEmpty());
-		Assert.assertEquals(true, e4.isEmpty());
+		Assert.assertFalse( e1.isEmpty());
+		Assert.assertTrue( e2.isEmpty());
+		Assert.assertTrue( e3.isEmpty());
+		Assert.assertTrue( e4.isEmpty());
 		
 	}
 }

@@ -13,5 +13,7 @@ public interface Geometry {
     public void accept(GeometryVisitor visitor);
 
     public Envelope getEnvelope();
+
+    public void addListener(GeometryListener listener);
     
 }
