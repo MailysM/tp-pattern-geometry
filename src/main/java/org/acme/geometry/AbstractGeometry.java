@@ -2,9 +2,17 @@ package org.acme.geometry;
 
 public abstract class AbstractGeometry implements Geometry {
 
-    abstract public String asText();
+    public String asText(){
+        WktVisitor visitor = new WktVisitor();
+        this.accept(visitor);
+        return visitor.getResult();   
+    }
 
-    abstract public Envelope getEnvelope();
+    public Envelope getEnvelope(){
+        EnvelopeBuilder envBuild = new EnvelopeBuilder();
+        this.accept(envBuild);
+        return envBuild.build();
+    }
 
     @Override
     public AbstractGeometry clone(){
